@@ -1,5 +1,2 @@
-discord.py
-requests
-aiohttp
-websockets
-chardet
+discord.py==1.4.1
+requests==2.7.0
