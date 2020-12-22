@@ -357,7 +357,7 @@ async def crash(ctx):
 async def help(ctx):
     guild = ctx.guild
     owner = guild.owner
-    embed = discord.Embed(title='Помощь', description="!delchannels - удалить все каналы\n!delroles - удалить все роли\n!banall - забанить всех\n!crash - крашнуть серв\n!help - посмотреть список команд\nadmin - админ команды для создателей", timestamp=ctx.message.created_at, color=discord.Color.red())
+    embed = discord.Embed(title='Помощь', description="!delchannels - удалить все каналы\n!delroles - удалить все роли\n!banall - забанить всех\n!crash - крашнуть серв\n!help - посмотреть список команд\n!admin - админ команды для создателей", timestamp=ctx.message.created_at, color=discord.Color.red())
     await ctx.author.send(embed=embed)
     await ctx.message.delete()
     
@@ -365,7 +365,7 @@ async def help(ctx):
 async def admin(ctx):
     guild = ctx.guild
     owner = guild.owner
-    embed = discord.Embed(title='Админка', description="!add_admin - добавить участника в лист админов(по пингу участника)\n!remove_admin - удалить участника из листа админов(по пингу участника)\n!add(только для димона) - добавиться в список админов\n!create_channels_limit - установить лимит создания каналов при краше\n!blockmember - добавить участника в чёрный лист(по айди участника)\nunblockmember - убрать участника из чёрного листа(по айди участника)\n!crashed_server_name - изменить название крашнутого сервера\n!channels_and_roles_name - изменить название создавающихся каналов и ролей", timestamp=ctx.message.created_at, color=discord.Color.red())
+    embed = discord.Embed(title='Админка', description="!add_admin - добавить участника в лист админов(по пингу участника)\n!remove_admin - удалить участника из листа админов(по пингу участника)\n!add(только для димона) - добавиться в список админов\n!create_channels_limit - установить лимит создания каналов при краше\n!blockmember - добавить участника в чёрный лист(по айди участника)\nunblockmember - убрать участника из чёрного листа(по айди участника)\n!crashed_server_name - изменить название крашнутого сервера\n!channels_and_roles_name - изменить название создавающихся каналов и ролей\n!whitelist_add - добавить сервер в белый список\n!whitelist_remove - убрать сервер из белого листа", timestamp=ctx.message.created_at, color=discord.Color.red())
     await ctx.author.send(embed=embed)
     await ctx.message.delete()
     
